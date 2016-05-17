@@ -4,7 +4,8 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
   g++  \
   gcc  \
   git  \
-  make
+  make \
+  zip
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

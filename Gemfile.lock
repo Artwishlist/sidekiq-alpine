@@ -8,10 +8,21 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    aws-sdk (2.3.4)
+      aws-sdk-resources (= 2.3.4)
+    aws-sdk-core (2.3.4)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.3.4)
+      aws-sdk-core (= 2.3.4)
     concurrent-ruby (1.0.0)
     connection_pool (2.2.0)
     daemons (1.2.3)
+    eb_deployer (0.6.6)
+      aws-sdk (~> 2, >= 2.0.0)
     eventmachine (1.0.9.1)
+    jmespath (1.2.4)
+      json_pure (>= 1.8.1)
+    json_pure (1.8.3)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -34,6 +45,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  eb_deployer (~> 0.6.6)
   sidekiq (~> 4.1.0)
   sidekiq-status (~> 0.6.0)!
   sinatra (~> 1.4.7)
