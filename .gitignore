@@ -40,3 +40,6 @@ build/
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 .ebextensions/*
+
+# Docker files
+docker-compose.yml
