@@ -16,4 +16,4 @@ COPY . ./
 
 EXPOSE 80
 
-CMD ["thin", "-e", "production", "-p", "80", "start"]
+CMD ["thin", "-p", "80", "start"]
