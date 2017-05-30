@@ -1,5 +1,0 @@
-{
-  "AWSEBDockerrunVersion": 1,
-  "Volumes": [],
-  "Logging": "/usr/src/app/log"
-}

@@ -1,0 +1,4 @@
+.env
+.gcloud/
+.git/
+.idea/

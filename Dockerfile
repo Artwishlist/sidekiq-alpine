@@ -1,20 +1,23 @@
-FROM ruby:2.2.4-slim
+FROM ruby:2.4.1-alpine
 
-RUN apt-get update -qq && apt-get install --no-install-recommends -y \
-  g++  \
-  gcc  \
-  git  \
-  make \
-  zip
+# Get required packages
+RUN apk add --no-cache \
+    build-base
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+# Set up working directory
+ENV DIR sidekiq
+RUN mkdir /$DIR
+WORKDIR /$DIR
 
-COPY Gemfile Gemfile.lock ./
-RUN gem install bundler && bundle install --jobs 20 --retry 5
+# Set up gems
+ADD Gemfile ./
+ADD Gemfile.lock ./
+RUN gem install bundler
+RUN bundle install --jobs 20 --retry 5
 
-COPY . ./
+# Finally, add the rest of our app's code
+ADD ./ ./
 
 EXPOSE 80
 
-CMD ["thin", "-p", "80", "start"]
+CMD ["bundle", "exec", "thin", "start", "-p", "80"]
