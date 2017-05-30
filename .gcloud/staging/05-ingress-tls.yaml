@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: sidekiq
+  namespace: staging
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: "gce"
+spec:
+  tls:
+  - hosts:
+    - staging-sidekiq.theartwishlist.com
+    secretName: api-tls
+  rules:
+  - host: staging-sidekiq.theartwishlist.com
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: sidekiq
+          servicePort: 80

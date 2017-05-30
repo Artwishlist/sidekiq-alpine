@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sidekiq
+  namespace: production
+spec:
+  replicas: 1 # tells deployment to run 1 pod matching the template
+  minReadySeconds: 60
+  template: # create pods using pod definition in this template
+    metadata:
+      # unlike pod-nginx.yaml, the name is not included in the meta data as a unique name is
+      # generated from the deployment name
+      labels:
+        app: sidekiq
+    spec:
+      containers:
+      - name: sidekiq
+        image: artwishlist/sidekiq-alpine:latest
+        env:
+        - name: USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: sidekiq
+              key: USERNAME
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sidekiq
+              key: PASSWORD
+        - name: REDIS_URL
+          valueFrom:
+            configMapKeyRef:
+              name: sidekiq
+              key: redis.url
+        ports:
+        - containerPort: 80
