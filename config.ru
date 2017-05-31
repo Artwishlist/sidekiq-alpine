@@ -20,7 +20,7 @@ map '/' do
 end
 
 class Health
-  def self.call
+  def self.call(env)
     res = Rack::Response.new
     # This will automatically set the Content-Length header for you
     res.write 'Hello, I\'m healthy!'
