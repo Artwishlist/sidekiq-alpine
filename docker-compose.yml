@@ -13,7 +13,7 @@ services:
     container_name: sidekiq
     build: .
     env_file: .env
-    command: sh -c "bundle exec thin start -p 8081"
+    command: sh -c "bundle exec thin start -p 8081 --debug"
     volumes:
       - .:/sidekiq
     ports:
