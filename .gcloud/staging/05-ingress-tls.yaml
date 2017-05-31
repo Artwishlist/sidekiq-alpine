@@ -10,7 +10,7 @@ spec:
   tls:
   - hosts:
     - staging-sidekiq.theartwishlist.com
-    secretName: api-tls
+    secretName: sidekiq-tls
   rules:
   - host: staging-sidekiq.theartwishlist.com
     http:
