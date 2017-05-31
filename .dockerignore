@@ -1,3 +1,5 @@
+docker-compose.yml
+.DS_Store
 .env
 .gcloud/
 .git/
