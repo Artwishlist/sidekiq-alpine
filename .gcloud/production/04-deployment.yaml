@@ -5,7 +5,7 @@ metadata:
   namespace: production
 spec:
   replicas: 1 # tells deployment to run 1 pod matching the template
-  minReadySeconds: 60
+  minReadySeconds: 10
   template: # create pods using pod definition in this template
     metadata:
       # unlike pod-nginx.yaml, the name is not included in the meta data as a unique name is
@@ -16,6 +16,7 @@ spec:
       containers:
       - name: sidekiq
         image: artwishlist/sidekiq-alpine:latest
+        imagePullPolicy: Always
         env:
         - name: USERNAME
           valueFrom:
