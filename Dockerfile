@@ -1,4 +1,4 @@
-FROM ruby:2.4.1-alpine
+FROM ruby:2.4.1-alpine3.6
 
 # Get required packages
 RUN apk add --no-cache \
