@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    chronic_duration (0.10.6)
+      numerizer (~> 0.1.1)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     daemons (1.2.4)
@@ -8,21 +10,23 @@ GEM
       tzinfo
     eventmachine (1.2.3)
     mustermann (1.0.0)
+    numerizer (0.1.1)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
-    redis (3.3.3)
+    redis (4.0.1)
     rufus-scheduler (3.4.2)
       et-orbi (~> 1.0)
-    sidekiq (5.0.4)
+    sidekiq (5.0.5)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
-      redis (~> 3.3, >= 3.3.3)
+      redis (>= 3.3.4, < 5)
     sidekiq-cron (0.6.3)
       rufus-scheduler (>= 3.3.0)
       sidekiq (>= 4.2.1)
-    sidekiq-status (0.6.0)
+    sidekiq-status (0.7.0)
+      chronic_duration
       sidekiq (>= 2.7)
     sinatra (2.0.0)
       mustermann (~> 1.0)
@@ -44,7 +48,7 @@ PLATFORMS
 DEPENDENCIES
   sidekiq (~> 5.0.4)
   sidekiq-cron (~> 0.6.3)
-  sidekiq-status (~> 0.6.0)
+  sidekiq-status (~> 0.7.0)
   sinatra (~> 2.0.0)
   thin (~> 1.7.0)
 
