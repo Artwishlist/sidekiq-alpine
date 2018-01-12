@@ -25,7 +25,7 @@ GEM
     sidekiq-cron (0.6.3)
       rufus-scheduler (>= 3.3.0)
       sidekiq (>= 4.2.1)
-    sidekiq-status (0.8.0)
+    sidekiq-status (0.8.1)
       chronic_duration
       sidekiq (>= 3.0)
     sinatra (2.0.0)
@@ -48,7 +48,7 @@ PLATFORMS
 DEPENDENCIES
   sidekiq (~> 5.0.4)
   sidekiq-cron (~> 0.6.3)
-  sidekiq-status (~> 0.8.0)
+  sidekiq-status (~> 0.8.1)
   sinatra (~> 2.0.0)
   thin (~> 1.7.2)
 
