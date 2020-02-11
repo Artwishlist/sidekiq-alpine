@@ -11,7 +11,7 @@ GEM
     eventmachine (1.2.5)
     mustermann (1.0.0)
     numerizer (0.1.1)
-    rack (2.0.4)
+    rack (2.2.2)
     rack-protection (2.0.0)
       rack
     redis (4.0.1)
